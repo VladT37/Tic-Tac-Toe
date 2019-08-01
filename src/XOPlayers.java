@@ -62,7 +62,7 @@ class XOPlayers {
     }
 
     private void insertPlayer2() {
-        // Sets the string 'player 2' to the name given by the user.
+        // Sets the string 'player 2' to the name given by the user
         // Then it verifies if the string is shorter than a character or longer than 32 characters.
         // If so, the string is set to - 'Player 2' and it throws an exception.
 
