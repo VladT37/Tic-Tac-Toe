@@ -17,21 +17,53 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="19" selection-start-column="19" selection-end-column="19" />
+            <state relative-caret-position="51">
+              <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
               <folding>
-                <element signature="e#198#199#0" expanded="true" />
-                <element signature="e#230#231#0" expanded="true" />
+                <element signature="e#199#200#0" expanded="true" />
+                <element signature="e#231#232#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/XOPlayers.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="105" column="51" lean-forward="true" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
+            <state relative-caret-position="425">
+              <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
+              <folding>
+                <element signature="e#95#96#0" expanded="true" />
+                <element signature="e#122#123#0" expanded="true" />
+                <element signature="e#162#163#0" expanded="true" />
+                <element signature="e#194#195#0" expanded="true" />
+                <element signature="e#223#224#0" expanded="true" />
+                <element signature="e#251#252#0" expanded="true" />
+                <element signature="e#290#291#0" expanded="true" />
+                <element signature="e#324#325#0" expanded="true" />
+                <element signature="e#374#375#0" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#436#437#0" expanded="true" />
+                <element signature="e#466#467#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/XOPlayer1.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="17">
+              <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/XOPlayer2.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="272">
+              <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
             </state>
           </provider>
         </entry>
@@ -48,35 +80,39 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/XOKeys.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
-              <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+            <state relative-caret-position="145">
+              <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#192#193#0" expanded="true" />
-                <element signature="e#225#226#0" expanded="true" />
+                <element signature="method#insertDefaultKey#0;class#XOKeys#0" />
+                <element signature="method#whoIsX#0;class#XOKeys#0" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/XOGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="349" column="65" selection-start-line="349" selection-start-column="65" selection-end-line="349" selection-end-column="65" />
+            <state relative-caret-position="595">
+              <caret line="334" column="21" selection-start-line="334" selection-start-column="21" selection-end-line="334" selection-end-column="21" />
               <folding>
                 <element signature="method#fillTable#0;class#XOGame#0" />
+                <element signature="method#showGameInfo#0;class#XOGame#0" />
                 <element signature="method#showTurn#0;class#XOGame#0" />
                 <element signature="method#showTable#0;class#XOGame#0" />
                 <element signature="method#showScore#0;class#XOGame#0" />
                 <element signature="method#showKeys#0;class#XOGame#0" />
-                <element signature="method#showKeys#1;class#XOGame#0" />
                 <element signature="method#pickRow#0;class#XOGame#0" />
                 <element signature="method#pickColumn#0;class#XOGame#0" />
                 <element signature="method#checkRowColumn#0;class#XOGame#0" />
                 <element signature="method#checkTable#0;class#XOGame#0" />
                 <element signature="method#gameOptions#0;class#XOGame#0" />
+                <element signature="method#confirmExit#0;class#XOGame#0" />
                 <element signature="method#continueRound#0;class#XOGame#0" />
+                <element signature="e#18921#20266#0" />
+                <element signature="e#16934#16935#0" expanded="true" />
+                <element signature="e#16972#16973#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -94,7 +130,12 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>continueRound</find>
+      <find>exception</find>
+      <find>key</find>
     </findStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -115,14 +156,16 @@
         <option value="$PROJECT_DIR$/src/X0Game.java" />
         <option value="$PROJECT_DIR$/src/XONewGame.java" />
         <option value="$PROJECT_DIR$/src/XOException.java" />
-        <option value="$PROJECT_DIR$/src/XOKeys.java" />
         <option value="$PROJECT_DIR$/src/Main.java" />
-        <option value="$PROJECT_DIR$/src/XOGame.java" />
         <option value="$PROJECT_DIR$/src/XOPlayers.java" />
+        <option value="$PROJECT_DIR$/src/XOPlayer1.java" />
+        <option value="$PROJECT_DIR$/src/XOKeys.java" />
+        <option value="$PROJECT_DIR$/src/XOGame.java" />
+        <option value="$PROJECT_DIR$/src/XOPlayer2.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="1">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
     <option name="width" value="1616" />
@@ -133,6 +176,10 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -176,7 +223,8 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
+    <frame x="-8" y="-8" width="1616" height="876" extended-state="1" />
+    <editor active="true" />
     <layout>
       <window_info id="Designer" order="0" />
       <window_info id="UI Designer" order="1" />
@@ -191,7 +239,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.32974428" />
+      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32974428" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39918256" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -219,7 +267,7 @@
       <window_info anchor="bottom" id="Version Control" order="3" />
       <window_info anchor="bottom" id="Message" order="4" />
       <window_info anchor="bottom" id="Find" order="5" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.32974428" />
+      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.32974428" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.39918256" />
       <window_info anchor="bottom" id="Cvs" order="8" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="9" weight="0.4" />
@@ -240,33 +288,47 @@
     <entry file="file://$PROJECT_DIR$/src/XONewGame.java" />
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="19" selection-start-column="19" selection-end-column="19" />
+        <state relative-caret-position="51">
+          <caret line="3" column="38" selection-start-line="3" selection-start-column="38" selection-end-line="3" selection-end-column="38" />
           <folding>
-            <element signature="e#198#199#0" expanded="true" />
-            <element signature="e#230#231#0" expanded="true" />
+            <element signature="e#199#200#0" expanded="true" />
+            <element signature="e#231#232#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/XOGame.java">
+    <entry file="file://$PROJECT_DIR$/src/XOPlayers.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="349" column="65" selection-start-line="349" selection-start-column="65" selection-end-line="349" selection-end-column="65" />
+        <state relative-caret-position="425">
+          <caret line="25" column="4" selection-start-line="25" selection-start-column="4" selection-end-line="25" selection-end-column="4" />
           <folding>
-            <element signature="method#fillTable#0;class#XOGame#0" />
-            <element signature="method#showTurn#0;class#XOGame#0" />
-            <element signature="method#showTable#0;class#XOGame#0" />
-            <element signature="method#showScore#0;class#XOGame#0" />
-            <element signature="method#showKeys#0;class#XOGame#0" />
-            <element signature="method#showKeys#1;class#XOGame#0" />
-            <element signature="method#pickRow#0;class#XOGame#0" />
-            <element signature="method#pickColumn#0;class#XOGame#0" />
-            <element signature="method#checkRowColumn#0;class#XOGame#0" />
-            <element signature="method#checkTable#0;class#XOGame#0" />
-            <element signature="method#gameOptions#0;class#XOGame#0" />
-            <element signature="method#continueRound#0;class#XOGame#0" />
+            <element signature="e#95#96#0" expanded="true" />
+            <element signature="e#122#123#0" expanded="true" />
+            <element signature="e#162#163#0" expanded="true" />
+            <element signature="e#194#195#0" expanded="true" />
+            <element signature="e#223#224#0" expanded="true" />
+            <element signature="e#251#252#0" expanded="true" />
+            <element signature="e#290#291#0" expanded="true" />
+            <element signature="e#324#325#0" expanded="true" />
+            <element signature="e#374#375#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#436#437#0" expanded="true" />
+            <element signature="e#466#467#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/XOPlayer1.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/XOPlayer2.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="16" column="9" selection-start-line="16" selection-start-column="9" selection-end-line="16" selection-end-column="9" />
         </state>
       </provider>
     </entry>
@@ -279,20 +341,38 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/XOKeys.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
-          <caret line="27" column="13" selection-start-line="27" selection-start-column="13" selection-end-line="27" selection-end-column="13" />
+        <state relative-caret-position="145">
+          <caret line="19" column="28" selection-start-line="19" selection-start-column="28" selection-end-line="19" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#192#193#0" expanded="true" />
-            <element signature="e#225#226#0" expanded="true" />
+            <element signature="method#insertDefaultKey#0;class#XOKeys#0" />
+            <element signature="method#whoIsX#0;class#XOKeys#0" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/XOPlayers.java">
+    <entry file="file://$PROJECT_DIR$/src/XOGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="105" column="51" lean-forward="true" selection-start-line="105" selection-start-column="51" selection-end-line="105" selection-end-column="51" />
+        <state relative-caret-position="595">
+          <caret line="334" column="21" selection-start-line="334" selection-start-column="21" selection-end-line="334" selection-end-column="21" />
+          <folding>
+            <element signature="method#fillTable#0;class#XOGame#0" />
+            <element signature="method#showGameInfo#0;class#XOGame#0" />
+            <element signature="method#showTurn#0;class#XOGame#0" />
+            <element signature="method#showTable#0;class#XOGame#0" />
+            <element signature="method#showScore#0;class#XOGame#0" />
+            <element signature="method#showKeys#0;class#XOGame#0" />
+            <element signature="method#pickRow#0;class#XOGame#0" />
+            <element signature="method#pickColumn#0;class#XOGame#0" />
+            <element signature="method#checkRowColumn#0;class#XOGame#0" />
+            <element signature="method#checkTable#0;class#XOGame#0" />
+            <element signature="method#gameOptions#0;class#XOGame#0" />
+            <element signature="method#confirmExit#0;class#XOGame#0" />
+            <element signature="method#continueRound#0;class#XOGame#0" />
+            <element signature="e#18921#20266#0" />
+            <element signature="e#16934#16935#0" expanded="true" />
+            <element signature="e#16972#16973#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

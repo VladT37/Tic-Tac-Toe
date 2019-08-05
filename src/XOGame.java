@@ -1,21 +1,9 @@
-import java.util.Scanner;
-
 class XOGame {
     private char[][] table;
-    private static char defaultKey;
     private boolean roundHasEnded = false;
     private boolean newRound = true;
     private static boolean turnPlayer1 = false;
     private int round = 1;
-    private Scanner scanner = new Scanner(System.in);
-
-    static void setDefaultKey(char defaultKey) {
-        XOGame.defaultKey = defaultKey;
-    }
-
-    static char getDefaultKey() {
-        return defaultKey;
-    }
 
     static void setTurnPlayer1(boolean trueOrFalse) {
         turnPlayer1 = trueOrFalse;
@@ -27,9 +15,18 @@ class XOGame {
 
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                table[i][j] = defaultKey;
+                table[i][j] = XOKeys.defaultKey;
             }
         }
+    }
+
+    private void showGameInfo() {
+        System.out.println("\nThe player whose key is assigned to 'X' moves first \n" +
+                "Type 'Q' at any time to quit the game \n" +
+                "Type 'C' after the round ends to continue playing \n" +
+                "\nType a one digit number from 0 to 2 (inclusive) for each row \n" +
+                "Followed by another one from 0 to 2 (inclusive) for each column \n" +
+                "Separated by a new line\n\n");
     }
 
     private void showTurn() {
@@ -38,9 +35,9 @@ class XOGame {
         // Otherwise, it's the second player's turn.
 
         if (turnPlayer1) {
-            System.out.println("\nIt's " + Main.players.getPlayer1()+"'s" + " Turn");
+            System.out.println("\nIt's " + Main.player1.getName()+"'s" + " Turn");
         } else {
-            System.out.println("\nIt's " + Main.players.getPlayer2()+"'s" + " Turn");
+            System.out.println("\nIt's " + Main.player2.getName()+"'s" + " Turn");
         }
         System.out.println("PICK A ROW AND A COLUMN");
 
@@ -62,29 +59,16 @@ class XOGame {
         // By the end of the round, this pops up, getting the name of Player 1 + its score and Player 2 + its score
         // and printing them out
 
-        System.out.println("\n" + Main.players.getPlayer1() + " || " + Main.players.getScorePlayer1() + " - "
-                + Main.players.getScorePlayer2() + " || " + Main.players.getPlayer2());
+        System.out.println("\n" + Main.player1.getName() + " || " + Main.player1.getScore() + " - "
+                + Main.player2.getScore() + " || " + Main.player2.getName());
     }
 
     private void showKeys() {
         // At the start of the round, this pops up, getting Player 1's name + its key and Player2's name + its key
-        // and the default key that has been set earlier + Round 1, printing them all out.
-        // This function is only called at the start of the game
-        // As the game moves to the next rounds, the function that's gonna be called is the one below
+        // and the default key that has been set earlier + the current Round, printing them all out.
 
-        System.out.println("\n" + Main.players.getPlayer1() + " - " + Main.keys.getKeyPlayer1() + " || " +
-                Main.players.getPlayer2() + " - " + Main.keys.getKeyPlayer2() + " || " + "DEFAULT KEY: " + XOGame.getDefaultKey());
-        System.out.println("\nROUND 1\n");
-    }
-
-    private void showKeys(XOKeys newKeys) {
-        // ^ as mentioned above
-        // This function is getting called after playing more than a round.
-        // Also, the parameter used, calls XOKeys' constructor, which shuffles players' keys and
-        // determines who starts the round.
-
-        System.out.println(Main.players.getPlayer1() + " - " + newKeys.getKeyPlayer1() + " || " +
-                Main.players.getPlayer2() + " - " + newKeys.getKeyPlayer2() + " || " + "DEFAULT KEY: " + XOGame.getDefaultKey());
+        System.out.println("\n" + Main.player1.getName() + " - " + Main.player1.getKey() + " || " +
+                Main.player2.getName() + " - " + Main.player2.getKey() + " || " + "DEFAULT KEY: " + XOKeys.getDefaultKey());
         System.out.println("\nROUND " + round + "\n");
     }
 
@@ -97,7 +81,7 @@ class XOGame {
 
         char row;
         while (true) {
-            String tester = scanner.nextLine();
+            String tester = XOKeys.scanner.nextLine();
             if (tester.length() < 1) {
                 System.out.print("ERROR! The row you entered is a blank space! Pick another one: ");
                 continue;
@@ -107,13 +91,13 @@ class XOGame {
                 continue;
             }
             row = tester.charAt(0);
-            if (Character.hashCode(row) >= 48 && Character.hashCode(row) <= 57) {
-                if (Character.hashCode(row) <= 50) {
+            if (Character.hashCode(row) >= (int)'0' && Character.hashCode(row) <= (int)'9') {
+                if (Character.hashCode(row) <= (int)'2') {
                     break;
                 } else {
                     System.out.print("ERROR! The row you entered isn't in the range of 0-2! Pick another one: ");
                 }
-            } else if (row == 'Q' || row == 'q') {
+            } else if (Character.toUpperCase(row) == XOKeys.QUIT_KEY) {
                 if (confirmExit()) {
                     System.exit(0);
                 } else {
@@ -135,7 +119,7 @@ class XOGame {
 
         char column;
         while (true) {
-            String tester = scanner.nextLine();
+            String tester = XOKeys.scanner.nextLine();
             if (tester.length() < 1) {
                 System.out.print("ERROR! The column you entered is a blank space! Pick another one: ");
                 continue;
@@ -145,13 +129,13 @@ class XOGame {
                 continue;
             }
             column = tester.charAt(0);
-            if (Character.hashCode(column) >= 48 && Character.hashCode(column) <= 57) {
-                if (Character.hashCode(column) <= 50) {
+            if (Character.hashCode(column) >= (int)'0' && Character.hashCode(column) <= (int)'9') {
+                if (Character.hashCode(column) <= (int)'2') {
                     break;
                 } else {
                     System.out.print("ERROR! The column you entered isn't in the range of 0-2! Pick another one: ");
                 }
-            } else if (column == 'Q' || column == 'q') {
+            } else if (Character.toUpperCase(column) == XOKeys.QUIT_KEY) {
                 if (confirmExit()){
                     System.exit(0);
                 } else {
@@ -164,36 +148,40 @@ class XOGame {
         return (int) column - '0';
     }
 
-    private void checkRowColumn(int row, int column) throws XOException {
+    private void checkRowColumn(int row, int column) {
         // This function verifies if the given row and column can fit the table.
-        // Otherwise it throws an exception based on the key that already occupied the given cell.
+        // Otherwise it throws an error based on the key that already occupied the given cell.
         // If the cell isn't occupied, then, that cell is gonna be marked by that player's key.
 
-        if (table[row][column] == 'X') {
-            if (Main.keys.getKeyPlayer1() == 'X') {
-                throw new XOException("ERROR! That cell is already occupied by " + Main.players.getPlayer1() +
-                        "'s key - " + Main.keys.getKeyPlayer1() + "\n");
+        if (table[row][column] == XOKeys.X_KEY) {
+            if (Main.player1.getKey() == XOKeys.X_KEY) {
+                System.out.println("ERROR! That cell is already occupied by " + Main.player1.getName() +
+                        "'s key - " + Main.player1.getKey() + "\n");
+                return;
             } else {
-                throw new XOException("ERROR! That cell is already occupied by " + Main.players.getPlayer2() +
-                        "'s key - " + Main.keys.getKeyPlayer2() + "\n");
+                System.out.println("ERROR! That cell is already occupied by " + Main.player2.getName() +
+                        "'s key - " + Main.player2.getKey() + "\n");
+                return;
             }
         }
 
-        if (table[row][column] == 'O') {
-            if (Main.keys.getKeyPlayer1() == 'O') {
-                throw new XOException("ERROR! That cell is already occupied by " + Main.players.getPlayer1() +
-                        "'s key - " + Main.keys.getKeyPlayer1() + "\n");
+        if (table[row][column] == XOKeys.O_KEY) {
+            if (Main.player1.getKey() == XOKeys.O_KEY) {
+                System.out.println("ERROR! That cell is already occupied by " + Main.player1.getName() +
+                        "'s key - " + Main.player1.getKey() + "\n");
+                return;
             } else {
-                throw new XOException("ERROR! That cell is already occupied by " + Main.players.getPlayer2() +
-                        "'s key - " + Main.keys.getKeyPlayer2() + "\n");
+                System.out.println("ERROR! That cell is already occupied by " + Main.player2.getName() +
+                        "'s key - " + Main.player2.getKey() + "\n");
+                return;
             }
         }
 
         if (turnPlayer1) {
-            table[row][column] = Main.keys.getKeyPlayer1();
+            table[row][column] = Main.player1.getKey();
             turnPlayer1 = false;
         } else {
-            table[row][column] = Main.keys.getKeyPlayer2();
+            table[row][column] = Main.player2.getKey();
             turnPlayer1 = true;
         }
         System.out.println();
@@ -207,40 +195,40 @@ class XOGame {
         // If the number of occupied cells is equal to 9 (all cells of the table), the game ends in a draw
         // If none of the above are true, the function returns false
 
-        if ((table[0][0] == 'X' && table[0][1] == 'X' && table[0][2] == 'X') ||
-                (table[1][0] == 'X' && table[1][1] == 'X' && table[1][2] == 'X') ||
-                (table[2][0] == 'X' && table[2][1] == 'X' && table[2][2] == 'X') ||
-                (table[0][0] == 'X' && table[1][0] == 'X' && table[2][0] == 'X') ||
-                (table[0][1] == 'X' && table[1][1] == 'X' && table[2][1] == 'X') ||
-                (table[0][2] == 'X' && table[1][2] == 'X' && table[2][2] == 'X') ||
-                (table[0][0] == 'X' && table[1][1] == 'X' && table[2][2] == 'X') ||
-                (table[0][2] == 'X' && table[1][1] == 'X' && table[2][0] == 'X')) {
+        if ((table[0][0] == XOKeys.X_KEY && table[0][1] == XOKeys.X_KEY && table[0][2] == XOKeys.X_KEY) ||
+                (table[1][0] == XOKeys.X_KEY && table[1][1] == XOKeys.X_KEY && table[1][2] == XOKeys.X_KEY) ||
+                (table[2][0] == XOKeys.X_KEY && table[2][1] == XOKeys.X_KEY && table[2][2] == XOKeys.X_KEY) ||
+                (table[0][0] == XOKeys.X_KEY && table[1][0] == XOKeys.X_KEY && table[2][0] == XOKeys.X_KEY) ||
+                (table[0][1] == XOKeys.X_KEY && table[1][1] == XOKeys.X_KEY && table[2][1] == XOKeys.X_KEY) ||
+                (table[0][2] == XOKeys.X_KEY && table[1][2] == XOKeys.X_KEY && table[2][2] == XOKeys.X_KEY) ||
+                (table[0][0] == XOKeys.X_KEY && table[1][1] == XOKeys.X_KEY && table[2][2] == XOKeys.X_KEY) ||
+                (table[0][2] == XOKeys.X_KEY && table[1][1] == XOKeys.X_KEY && table[2][0] == XOKeys.X_KEY)) {
             if (!turnPlayer1) {
-                System.out.println(Main.players.getPlayer1() + " HAS WON THE ROUND!");
-                Main.players.setScorePlayer1(Main.players.getScorePlayer1()+1);
+                System.out.println(Main.player1.getName() + " HAS WON THE ROUND!");
+                Main.player1.setScore(Main.player1.getScore()+1);
             } else {
-                System.out.println(Main.players.getPlayer2() + " HAS WON THE ROUND!");
-                Main.players.setScorePlayer2(Main.players.getScorePlayer2()+1);
+                System.out.println(Main.player2.getName() + " HAS WON THE ROUND!");
+                Main.player2.setScore(Main.player2.getScore()+1);
             }
             roundHasEnded = true;
             newRound = false;
             return true;
         }
 
-        if ((table[0][0] == 'O' && table[0][1] == 'O' && table[0][2] == 'O') ||
-                (table[1][0] == 'O' && table[1][1] == 'O' && table[1][2] == 'O') ||
-                (table[2][0] == 'O' && table[2][1] == 'O' && table[2][2] == 'O') ||
-                (table[0][0] == 'O' && table[1][0] == 'O' && table[2][0] == 'O') ||
-                (table[0][1] == 'O' && table[1][1] == 'O' && table[2][1] == 'O') ||
-                (table[0][2] == 'O' && table[1][2] == 'O' && table[2][2] == 'O') ||
-                (table[0][0] == 'O' && table[1][1] == 'O' && table[2][2] == 'O') ||
-                (table[0][2] == 'O' && table[1][1] == 'O' && table[2][0] == 'O')) {
+        if ((table[0][0] == XOKeys.O_KEY && table[0][1] == XOKeys.O_KEY && table[0][2] == XOKeys.O_KEY) ||
+                (table[1][0] == XOKeys.O_KEY && table[1][1] == XOKeys.O_KEY && table[1][2] == XOKeys.O_KEY) ||
+                (table[2][0] == XOKeys.O_KEY && table[2][1] == XOKeys.O_KEY && table[2][2] == XOKeys.O_KEY) ||
+                (table[0][0] == XOKeys.O_KEY && table[1][0] == XOKeys.O_KEY && table[2][0] == XOKeys.O_KEY) ||
+                (table[0][1] == XOKeys.O_KEY && table[1][1] == XOKeys.O_KEY && table[2][1] == XOKeys.O_KEY) ||
+                (table[0][2] == XOKeys.O_KEY && table[1][2] == XOKeys.O_KEY && table[2][2] == XOKeys.O_KEY) ||
+                (table[0][0] == XOKeys.O_KEY && table[1][1] == XOKeys.O_KEY && table[2][2] == XOKeys.O_KEY) ||
+                (table[0][2] == XOKeys.O_KEY && table[1][1] == XOKeys.O_KEY && table[2][0] == XOKeys.O_KEY)) {
             if (!turnPlayer1) {
-                System.out.println(Main.players.getPlayer1() + " HAS WON THE ROUND!");
-                Main.players.setScorePlayer1(Main.players.getScorePlayer1()+1);
+                System.out.println(Main.player1.getName() + " HAS WON THE ROUND!");
+                Main.player1.setScore(Main.player1.getScore()+1);
             } else {
-                System.out.println(Main.players.getPlayer2() + " HAS WON THE ROUND!");
-                Main.players.setScorePlayer2(Main.players.getScorePlayer2()+1);
+                System.out.println(Main.player2.getName() + " HAS WON THE ROUND!");
+                Main.player2.setScore(Main.player2.getScore()+1);
             }
             roundHasEnded = true;
             newRound = false;
@@ -250,7 +238,7 @@ class XOGame {
         int countOccupiedCells = 0;
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                if (table[i][j] == defaultKey) {
+                if (table[i][j] == XOKeys.defaultKey) {
                     return false;
                 } else {
                     countOccupiedCells++;
@@ -267,10 +255,13 @@ class XOGame {
     }
 
     private void gameOptions() {
+        // This function gets called at the end of the round and asks the user if he wants to continue the game.
+        // it loops until the user types Q or C
+
         System.out.println("\nType 'Q' to quit the game \n" +
                 "Type 'C' to continue playing \n");
         while (true) {
-            String tester = scanner.nextLine();
+            String tester = XOKeys.scanner.nextLine();
             if (tester.length() < 1) {
                 System.out.print("ERROR! The key you entered is a blank space! Pick another one: ");
                 continue;
@@ -280,16 +271,15 @@ class XOGame {
                 continue;
             }
 
-            char key = tester.charAt(0);
-
-            if (key == 'Q' || key == 'q') {
+            char inputKey = tester.charAt(0);
+            if (Character.toUpperCase(inputKey) == XOKeys.QUIT_KEY) {
                 if (confirmExit()){
                     System.exit(0);
                 } else {
                     continueRound();
                     break;
                 }
-            } else if (key == 'C' || key == 'c') {
+            } else if (Character.toUpperCase(inputKey) == XOKeys.CONTINUE_KEY) {
                 continueRound();
                 break;
             } else {
@@ -304,7 +294,7 @@ class XOGame {
 
         System.out.print("Are you sure you want to exit the game? (Y/N): ");
         while (true) {
-            String tester = scanner.nextLine();
+            String tester = XOKeys.scanner.nextLine();
             if (tester.length() < 1) {
                 System.out.print("ERROR! The key you entered is a blank space! Pick another one: ");
                 continue;
@@ -313,11 +303,12 @@ class XOGame {
                 System.out.print("ERROR! The key you entered contains more than one character! Pick another one: ");
                 continue;
             }
-            char key = tester.charAt(0);
-            if (key == 'Y' || key == 'y') {
+
+            char inputKey = tester.charAt(0);
+            if (Character.toUpperCase(inputKey) == XOKeys.YES_KEY) {
                 System.out.println("Exiting the game...");
                 return true;
-            } else if (key == 'N' || key == 'n') {
+            } else if (Character.toUpperCase(inputKey) == XOKeys.NO_KEY) {
                 return false;
             } else {
                 System.out.print("ERROR! The key you entered isn't Y or N! Choose again!");
@@ -338,12 +329,17 @@ class XOGame {
         table = new char[3][3];
         fillTable();
         XOKeys newKeys = new XOKeys();
-        showKeys(newKeys);
+        showKeys();
     }
 
     void startGame() {
         // This function is called once from the Main class, as the program runs
 
+        showGameInfo(); // Instructions
+        Main.player1.insertPlayer(); // Player 1's name
+        Main.player2.insertPlayer(); // Player 2's name
+        Main.keys.insertDefaultKey(); // Default key for the table
+        fillTable(); // Fills the table with the default key that has been set earlier.
         showKeys(); // It shows the keys that have been set by the user
         while (newRound) { // As long as the user doesn't quit the game, this keeps going
             while (!roundHasEnded) { // This keeps going until the round ends
@@ -352,11 +348,10 @@ class XOGame {
                     break; // If so, the round ends.
                 }
                 showTurn(); // Shows whose turn it is.
-                try {
-                    checkRowColumn(pickRow(),pickColumn()); // After checking if the inputs aren't incorrect
-                } catch (Exception e) {                     // it checks if the row-column combination is correct
-                    System.out.println(e.getMessage());     // on the table. Otherwise, it throws an exception, and
-                }                                           // that player has to repeat its turn.
+                checkRowColumn(pickRow(),pickColumn());
+                // After checking if the inputs aren't incorrect it checks if the row-column combination is correct
+                // for the current table.
+                // Otherwise, it throws an error, and that player has to repeat its turn.
             }
             showScore(); // By the end of the round, this shows the score
             gameOptions(); // Gives the user the options to either continue playing or to guit the game
@@ -365,6 +360,5 @@ class XOGame {
 
     XOGame(){
         table = new char[3][3];
-        fillTable(); // Fills the table with the default key that has been set earlier.
     }
 }
